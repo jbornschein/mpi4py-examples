@@ -51,7 +51,7 @@ my_offset = comm.rank*my_size
 
 # This is the complete vector
 vec = np.zeros(size)            # Every element zero...
-vec[0] = 1.0                    #  ... beisides vec[0]
+vec[0] = 1.0                    #  ... besides vec[0]
 
 # Create my (local) slice of the matrix
 my_M = np.zeros((my_size, size))
