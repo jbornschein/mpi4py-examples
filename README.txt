@@ -4,10 +4,6 @@
 These programs use mpi4py (>= Version 1.0) to make MPI calls available 
 to Python programs. 
 
-At the FIAS, this library is installed on all "Ubuntu Jaunty" machines, it is 
-not ionstalled on the old "Gutsy" machines. If you plan to install the library 
-yourself, please download it from http://code.google.com/p/mpi4py.
-
 The documentation can be found at 
 
    http://mpi4py.scipy.org/
