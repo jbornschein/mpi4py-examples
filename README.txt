@@ -53,9 +53,7 @@ Where "-I" means you want to work interactively, "-X" requests grapical
 option "-l " specifies the resources you want to allocate.  "-l nodes=4:ppn=4"
 requests four compute nodes with each having 4 processor cores 
 [ppn =^ ProcessorsPerNode].  So in total you allocate 16 CPU cores. 
-[ The job scheduler is free to run your job on two nodes having 8 CPU cores
-  each but is not allowed to schdule your job to 8 nodes having only 2 CPU 
-  cores ]
+[The scheduler is free to run your job on two nodes having 8 CPU cores each]
 
 Once your interactive session is ready, you simply run 
 
