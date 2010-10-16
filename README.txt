@@ -1,14 +1,14 @@
 
 === Dependencies ===
 
-These programs use mpi4py (>= Version 1.0) to make MPI calls available 
-to Python programs. 
+These programs deoend on mpi4py (>= Version 1.0)
 
-The documentation can be found at 
+The mpi4py documentation and installation instructions 
+can be found at:
 
    http://mpi4py.scipy.org/
 
-=== How to run on a single (multiprocessor) host ===
+=== How to run on a single (multi-core) host ===
 
 Run it with 
 
@@ -51,11 +51,11 @@ your session:
 Where "-I" means you want to work interactively, "-X" requests grapical
 (X-Window) I/O -- (you can run arbitrary programs that open windows).  The
 option "-l " specifies the resources you want to allocate.  "-l nodes=4:ppn=4"
-requests four compute nodes with each having 4 processor cores 
+requests four compute nodes with each having four processor cores 
 [ppn =^ ProcessorsPerNode].  So in total you allocate 16 CPU cores. 
 [The scheduler is free to run your job on two nodes having 8 CPU cores each]
 
-Once your interactive session is ready, you simply run 
+Once your interactive session is ready, you run 
 
  $ mpirun ./your-program
   
