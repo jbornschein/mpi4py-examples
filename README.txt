@@ -1,7 +1,7 @@
 
 === Dependencies ===
 
-These programs deoend on mpi4py (>= Version 1.0)
+These programs depend on mpi4py (>= Version 1.0)
 
 The mpi4py documentation and installation instructions 
 can be found at:
@@ -21,7 +21,7 @@ processes to be started.
 === How to run on multiple hosts ===
 
 If you want to run the program distributed over multiple hosts, 
-you have to create a <hostfile> which looks like this:
+you have to create a <hostfile> which looks like:
 
 -- hostfile --
 host1   slots=4
