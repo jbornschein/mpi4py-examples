@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Join std- and error output
+#PBS -j oe
+
+# Preserve environment variables
+#PBS -V
+
+# Change into original workdir
+cd $PBS_O_WORKDIR
+
+mpirun -x PYTHONPATH ./pseudo-whitening van-hateren-linear.h5 van-hateren-whitened.h5
+
