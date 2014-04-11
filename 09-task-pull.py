@@ -24,9 +24,8 @@ tags = enum('READY', 'DONE', 'EXIT', 'START')
 
 # Initializations and preliminaries
 comm = MPI.COMM_WORLD   # get MPI communicator object
-size = comm.Get_size()  # total number of processes
-rank = comm.Get_rank()  # rank of this process
-name = MPI.Get_processor_name()
+size = comm.size        # total number of processes
+rank = comm.rank        # rank of this process
 status = MPI.Status()   # get MPI status object
 
 if rank == 0:
@@ -35,7 +34,7 @@ if rank == 0:
     task_index = 0
     num_workers = size - 1
     closed_workers = 0
-    print("Master starting with {} workers".format(num_workers))
+    print("Master starting with %d workers" % num_workers)
     while closed_workers < num_workers:
         data = comm.recv(source=MPI.ANY_SOURCE, tag=MPI.ANY_TAG, status=status)
         source = status.Get_source()
@@ -44,21 +43,22 @@ if rank == 0:
             # Worker is ready, so send it a task
             if task_index < len(tasks):
                 comm.send(tasks[task_index], dest=source, tag=tags.START)
-                print("Sending task {} to worker {}".format(task_index, source))
+                print("Sending task %d to worker %d" % (task_index, source))
                 task_index += 1
             else:
                 comm.send(None, dest=source, tag=tags.EXIT)
         elif tag == tags.DONE:
             results = data
-            print("Got data from worker {}".format(source))
+            print("Got data from worker %d" % source)
         elif tag == tags.EXIT:
-            print("Worker {} exited.".format(source))
+            print("Worker %d exited." % source)
             closed_workers += 1
 
     print("Master finishing")
 else:
     # Worker processes execute code below
-    print("I am a worker with rank {} on {}.".format(rank, name))
+    name = MPI.Get_processor_name()
+    print("I am a worker with rank %d on %s." % (rank, name))
     while True:
         comm.send(None, dest=0, tag=tags.READY)
         task = comm.recv(source=0, tag=MPI.ANY_SOURCE, status=status)
