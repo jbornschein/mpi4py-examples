@@ -61,7 +61,7 @@ else:
     print("I am a worker with rank %d on %s." % (rank, name))
     while True:
         comm.send(None, dest=0, tag=tags.READY)
-        task = comm.recv(source=0, tag=MPI.ANY_SOURCE, status=status)
+        task = comm.recv(source=0, tag=MPI.ANY_TAG, status=status)
         tag = status.Get_tag()
         
         if tag == tags.START:
