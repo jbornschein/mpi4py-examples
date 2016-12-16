@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from __future__ import division
+from __future__ import print_function
 
 import numpy as np
 from mpi4py import MPI
@@ -26,4 +27,4 @@ else:
 comm.Bcast( [A, MPI.DOUBLE] )
 
 # Everybody should now have the same...
-print "[%02d] %s" % (comm.rank, A)
+print("[%02d] %s" % (comm.rank, A))

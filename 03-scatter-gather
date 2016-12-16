@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from __future__ import division
+from __future__ import print_function
 
 import numpy as np
 from mpi4py import MPI
@@ -29,7 +30,7 @@ comm.Scatter( [A, MPI.DOUBLE], [my_A, MPI.DOUBLE] )
 pprint("After Scatter:")
 for r in xrange(comm.size):
     if comm.rank == r:
-        print "[%d] %s" % (comm.rank, my_A)
+        print("[%d] %s" % (comm.rank, my_A))
     comm.Barrier()
 
 # Everybody is multiplying by 2
@@ -41,6 +42,6 @@ comm.Allgather( [my_A, MPI.DOUBLE], [A, MPI.DOUBLE] )
 pprint("After Allgather:")
 for r in xrange(comm.size):
     if comm.rank == r:
-        print "[%d] %s" % (comm.rank, A)
+        print("[%d] %s" % (comm.rank, A))
     comm.Barrier()
 

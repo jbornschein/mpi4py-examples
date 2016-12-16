@@ -5,6 +5,7 @@ parent will then spawn specified number of workers. Work is randomized to
 demonstrate dynamic allocation. Worker logs are collectively passed back to
 parent at the end in place of results. Comments and output are both
 deliberately excessive for instructional purposes. """
+from __future__ import print_function
 
 from mpi4py import MPI
 import random
@@ -53,13 +54,13 @@ if len(sys.argv) == 1:
 
     # Print summary
     workers = 0; tasks = 0; time = 0
-    print '\n\n  Worker   Tasks    Time'
-    print '-' * 26
+    print('\n\n  Worker   Tasks    Time')
+    print('-' * 26)
     for worker, report in enumerate(reports):
-        print '%8i%8i%8i' % (worker, len(report), sum(report))
+        print('%8i%8i%8i' % (worker, len(report), sum(report)))
         workers += 1; tasks += len(report); time += sum(report)
-    print '-' * 26
-    print '%8i%8i%8i' % (workers, tasks, time)
+    print('-' * 26)
+    print('%8i%8i%8i' % (workers, tasks, time))
 
     # Check all in order
     assert workers == n_workers, 'Missing workers'
@@ -69,8 +70,8 @@ if len(sys.argv) == 1:
     # Final statistics
     finish = MPI.Wtime() - start
     efficiency = (total_time * 100) / (finish * n_workers)
-    print '\nProcessed in %.2f secs' % finish
-    print '%.2f%% efficient' % efficiency
+    print('\nProcessed in %.2f secs' % finish)
+    print('%.2f%% efficient' % efficiency)
 
     # Shutdown
     comm.Disconnect()
