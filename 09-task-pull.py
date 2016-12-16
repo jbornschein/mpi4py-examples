@@ -13,6 +13,7 @@ from __future__ import print_function
 
 from mpi4py import MPI
 
+
 def enum(*sequential, **named):
     """Handy way to fake an enumerated type in Python
     http://stackoverflow.com/questions/36932/how-can-i-represent-an-enum-in-python

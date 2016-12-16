@@ -28,7 +28,7 @@ my_A = np.empty(my_N, dtype=np.float64)
 comm.Scatter( [A, MPI.DOUBLE], [my_A, MPI.DOUBLE] )
 
 pprint("After Scatter:")
-for r in xrange(comm.size):
+for r in range(comm.size):
     if comm.rank == r:
         print("[%d] %s" % (comm.rank, my_A))
     comm.Barrier()
@@ -40,7 +40,7 @@ my_A *= 2
 comm.Allgather( [my_A, MPI.DOUBLE], [A, MPI.DOUBLE] )
 
 pprint("After Allgather:")
-for r in xrange(comm.size):
+for r in range(comm.size):
     if comm.rank == r:
         print("[%d] %s" % (comm.rank, A))
     comm.Barrier()

@@ -71,7 +71,7 @@ else:
 comm.Barrier()                    ### Start stopwatch ###
 t_start = MPI.Wtime()
 
-for i_base in xrange(0, image_count, comm.size):
+for i_base in range(0, image_count, comm.size):
     i = i_base + comm.rank
     #
     if i  <image_count:
@@ -90,7 +90,7 @@ for i_base in xrange(0, image_count, comm.size):
     # rank 0 has to write into the HDF file
     if comm.rank == 0:
         # Sequentially append each of the images
-        for r in xrange(comm.size):
+        for r in range(comm.size):
             pass
             #h5out.append( {'image': gbuf[r]} )
 

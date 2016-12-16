@@ -6,6 +6,7 @@ demonstrate dynamic allocation. Worker logs are collectively passed back to
 parent at the end in place of results. Comments and output are both
 deliberately excessive for instructional purposes. """
 from __future__ import print_function
+from __future__ import division
 
 from mpi4py import MPI
 import random
@@ -69,7 +70,7 @@ if len(sys.argv) == 1:
 
     # Final statistics
     finish = MPI.Wtime() - start
-    efficiency = (total_time * 100) / (finish * n_workers)
+    efficiency = (total_time * 100.) / (finish * n_workers)
     print('\nProcessed in %.2f secs' % finish)
     print('%.2f%% efficient' % efficiency)
 
