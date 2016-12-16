@@ -9,8 +9,10 @@ This code is over-commented for instructional purposes.
 This example was contributed by Craig Finch (cfinch@ieee.org).
 Inspired by http://math.acadiau.ca/ACMMaC/Rmpi/index.html
 """
+from __future__ import print_function
 
 from mpi4py import MPI
+
 
 def enum(*sequential, **named):
     """Handy way to fake an enumerated type in Python

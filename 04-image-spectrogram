@@ -57,7 +57,7 @@ comm.Barrier()                    ### Start stopwatch ###
 t_start = MPI.Wtime()
 
 my_spec = np.zeros( (height, width) )
-for i in xrange(comm.rank, image_count, comm.size):
+for i in range(comm.rank, image_count, comm.size):
     img  = images[i]            # Load image from HDF file
     img_ = fft2(img)            # 2D FFT
     my_spec += np.abs(img_)     # Sum absolute value into partial spectrogram

@@ -1,6 +1,7 @@
 #!/usr/bin/env python 
 
 from __future__ import division
+from __future__ import print_function
 
 import numpy as np 
 from mpi4py import MPI
@@ -58,7 +59,7 @@ if __name__ == "__main__":
     req = [None, None, None, None]
 
     t0 = time()
-    for r in xrange(mpi_rows):
+    for r in range(mpi_rows):
         req[EAST]  = ccomm.Isend(tile_A , neigh[EAST])
         req[WEST]  = ccomm.Irecv(tile_A_, neigh[WEST])
         req[SOUTH] = ccomm.Isend(tile_B , neigh[SOUTH])
