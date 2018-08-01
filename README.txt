@@ -14,7 +14,7 @@ Run it with
 
  mpirun -np 4 ./some-program
 
-where the number after "-np " is the numer of parallel MPI 
+where the number after "-np " is the number of parallel MPI 
 processes to be started.
 
 
@@ -37,7 +37,7 @@ Run it with
   mpirun --hostfile <hostfile> ./some-program
 
 
-=== Run on a cluster with the Torque Job schduling system ===
+=== Run on a cluster with the Torque Job scheduling system ===
 
 There are two possibilities:
 
