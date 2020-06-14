@@ -15,7 +15,6 @@ import tables
 import numpy as np
 from numpy.fft import fft2, ifft2
 from mpi4py import MPI
-from bernstein.utils import autotable
 from parutils import pprint
 
 #=============================================================================
@@ -32,8 +31,6 @@ except:
     pprint("Error: Could not open file %s" % in_fname)
     exit(1)
 
-#h5out = autotable.AutoTable(out_fname)
-    
 #
 images = h5in.root.images
 image_count, height, width = images.shape
